@@ -14,7 +14,10 @@ float hn(float x, float y) {
     return (x*(-y*y + 3*log(x) + x) - 2*y*(-x*y + 2*x*x - 5*x + 1))/(((1.304347826086957/x)+1)*x - 2*(-y + 4*x-5)*y);
 }
 
-int main() {
+int main() { 
+
+    /* Program to calculate de solutions of a non-linear system using the Newton's Method 
+       The kn and hn functions were previously calculated using Maxima software */
 
     float x, y;
 
