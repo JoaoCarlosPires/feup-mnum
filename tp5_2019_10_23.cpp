@@ -6,6 +6,8 @@ using namespace std;
 
 int main() {
 
+    /* This program calculates the transformation of a given matrix using the Gauss's Method */
+
     vector<vector<float>> matrix = {{9.0, 1.0, 5.0, 25.0}, {1.0, 4.0, 6.0, 16.0}, {2.0, 9.0, 7.0, 29.0}};
     cout << "Number of lines: " << matrix.size() << endl;
     cout << "Number of columns: " << matrix[0].size() << endl;
