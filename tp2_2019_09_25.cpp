@@ -19,9 +19,9 @@ int main()
       cout << "Using sqrt:       " << "\t" << setprecision(30) << -sqrt(n) << " and " << sqrt(n) << endl;
       // prints the difference between both calc methods
       cout << "Difference:       " << "\t" << setprecision(30) << fabs(-i - sqrt(n)); 
-      return 1;
+      return 0;
     }
   }
 
-  return 0;
+  return 1;
 }
