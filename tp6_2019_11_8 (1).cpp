@@ -6,38 +6,48 @@ using namespace std;
 
 /* Trapezoids's Method and Simpson's Method */
 
+/*
 float f(float a, float b, float i, float n) {
     return sin(a+i*((((b-a)/n)/3)))/((a+i*((((b-a)/n)/3)))*(a+i*((((b-a)/n)/3))));
 }
+*/
+
+float fx(float x) {
+    return sin(x)/(x*x);
+}
 
 float st(float a, float b, int n) {
-    float st_int;
-
+    float st_int = 0;
+    float x = a;
+    float h = (b-a)/n;
     for (int i = 0; i <= n; i++) {
         if (i==0 || i == n) {
-        st_int += f(a, b, i, n);
+        st_int += fx(x);
         } else {
-            st_int += 2*f(a, b, i, n);
+            st_int += 2*fx(x);
         }
-    } 
-    
-    return (((b-a)/n)/2)*(st_int);
+        x += h;
+    }
+
+    return (h/2)*(st_int);
 }
 
 float ss(float a, float b, int n) {
     float st_int;
-
+    float x = a;
+    float h = (b-a)/n;
     for (int i = 0; i <= n; i++) {
         if (i==0 || i == n) {
-            st_int += f(a, b, i, n);
+            st_int += fx(x);
         } else if (i%2==0) {
-            st_int += 2*f(a, b, i, n);
+            st_int += 2*fx(x);
         } else {
-            st_int += 4*f(a, b, i, n);
+            st_int += 4*fx(x);
         }
+        x+=h;
     } 
     
-    return (((b-a)/n)/3)*(st_int);
+    return (h/3)*(st_int);
 }
 
 int main() {
