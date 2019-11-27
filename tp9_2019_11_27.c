@@ -1,4 +1,5 @@
-#include<stdio.h> 
+#include <stdio.h>
+#include <math.h> 
 
 /* Program to implement Runge Kutta method 
 Based on https://www.geeksforgeeks.org/runge-kutta-4th-order-method-solve-differential-equation/ */
@@ -40,9 +41,16 @@ float rungeKutta(float x0, float y0, float x, float h)
   
 int main() 
 { 
-    float x0 = -2, y = -5.0/3, x = 25, h = 0.001;
+    float x0 = -2, y = -5.0/3, x = 25;
+    float h = 0.001;
 
-    printf("\nThe value of y at x is : %f", rungeKutta(x0, y, x, h));
+    printf("\nFor h = %f, the value of y at x is : %f", h, rungeKutta(x0, y, x, h));
+
+    printf("\nFor h = %f, the value of y at x is : %f", h/2, rungeKutta(x0, y, x, h/2));
+    
+    printf("\nFor h = %f, the value of y at x is : %f", h/4, rungeKutta(x0, y, x, h/4));
+
+    printf("\n\nThe error is : %f", (rungeKutta(x0, y, x, h/2)-rungeKutta(x0, y, x, h))/(rungeKutta(x0, y, x, h/4)-rungeKutta(x0, y, x, h/2)));
 
     return 0; 
 }

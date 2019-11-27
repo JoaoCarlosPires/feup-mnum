@@ -14,7 +14,7 @@ float func(float x)
 }
 
 // Function for Euler formula
-void euler(float x0, float y, float h, float x)
+float euler(float x0, float y, float h, float x)
 {
     float temp = 0;
 
@@ -24,10 +24,9 @@ void euler(float x0, float y, float h, float x)
         temp = y;
         y += h * func(x0);
         x0 += h;
-
-        // Printing approximation
-        cout << "Approximate solution at x = " << x0 << " is " << y << endl;
     }
+
+    return y;
 }
 
 int main()
@@ -36,10 +35,24 @@ int main()
     float x0 = -2;
     float y0 = -5.0 / 3;
     float h = 0.001;
+    float y;
 
     // Value of x at which we need approximation
     float x = 25;
 
-    euler(x0, y0, h, x);
+    y = euler(x0, y0, h, x);
+    // Printing approximation
+    cout << setprecision(10) << "For h = " << h << ", the approximate solution at x = " << x << " is " << y << endl;
+
+    y = euler(x0, y0, h / 2, x);
+    // Printing approximation
+    cout << setprecision(10) << "For h = " << h / 2 << ", the approximate solution at x = " << x << " is " << y << endl;
+
+    y = euler(x0, y0, h / 4, x);
+    // Printing approximation
+    cout << setprecision(10) << "For h = " << h / 4 << ", the approximate solution at x = " << x << " is " << y << endl;
+
+    cout << setprecision(10) << "\nThe error is: " << (euler(x0, y0, h / 2, x) - euler(x0, y0, h, x)) / (euler(x0, y0, h / 4, x) - euler(x0, y0, h / 2, x)) << endl;
+
     return 0;
 }
