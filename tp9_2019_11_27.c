@@ -38,10 +38,9 @@ float rungeKutta(float x0, float y0, float x, float h)
     return y; 
 } 
   
-// Driver method 
 int main() 
 { 
-    float x0 = 0, y = 1, x = 25, h = 0.001;
+    float x0 = -2, y = -5.0/3, x = 25, h = 0.001;
 
     printf("\nThe value of y at x is : %f", rungeKutta(x0, y, x, h));
 
